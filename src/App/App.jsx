@@ -4,6 +4,7 @@ import './App.scss';
 
 import ProfileNavigation from '@/pages/ProfileNavigation/ProfileNavigation';
 import Profile from '@/pages/Profile/Profile';
+import EditingProfile from '@/components/EditingProfile/EditingProfile';
 
 export default function App() {
     return (
@@ -11,8 +12,8 @@ export default function App() {
             <Routes>
                 <Route path="/profileNavigation" element={<ProfileNavigation/>}>
                     <Route path="profile" element={<Profile/>} />
-                </Route>
-                
+                    <Route path='edit' element={<EditingProfile/>} />
+                </Route>                
             </Routes>
         </BrowserRouter>
     )
