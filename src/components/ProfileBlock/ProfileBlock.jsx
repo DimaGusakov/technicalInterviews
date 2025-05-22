@@ -5,10 +5,6 @@ export default function ProfileBlock({userData, setEditProfile}) {
 
     const [changeUserData, setChangeUserData] = useState(false)
 
-    const func = () => {
-        console.log("wtf")
-    }
-
   return (
     <div className='flex justify-between p-[16px] bg-[var(--color-card)] border border-[var(--color-border)] rounded-3xl shadow-[0px_4px_10px_0px_rgba(106,99,118,0.1)]'>
         <div className='flex'>
