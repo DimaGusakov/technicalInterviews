@@ -7,13 +7,13 @@ export default function ProfileNavigation() {
   return (
     <div className="flex min-h-screen">
       
-      <nav role="navigation" className="flex flex-col gap-2 p-10 w-62 min-h-screen bg-[var(--sidebar)] text-[var(--sidebar-foreground)] text-[clamp(1rem,1.5vw,1rem)]">
+      <nav role="navigation" className="flex flex-col gap-2 p-10 w-62 min-h-screen bg-[var(--sidebar)] text-[var(--sidebar-foreground)] text-[clamp(0.5rem,1.5vw,1.3rem)]">
         <NavLink
           to="main"
           className={({ isActive }) =>
-            `rounded px-4 py-2 transition-colors text-[var(--sidebar-foreground)] ${
+            `rounded-md px-4 py-2 transition-colors text-[var(--sidebar-foreground)] ${
               isActive
-                ? 'bg-[var(--sidebar-accent)]'
+                ? 'bg-[var(--sidebar-accent)] text-[var(--chart-1)]'
                 : 'hover:bg-[var(--sidebar-accent)]'
             }`
           }
@@ -23,9 +23,9 @@ export default function ProfileNavigation() {
         <NavLink
           to="profile"
           className={({ isActive }) =>
-            `rounded px-4 py-2 transition-colors text-[var(--sidebar-foreground)] ${
+            `rounded-md px-4 py-2 transition-colors text-[var(--sidebar-foreground)] ${
               isActive
-                ? 'bg-[var(--sidebar-accent)]'
+                ? 'bg-[var(--sidebar-accent)] text-[var(--chart-1)]'
                 : 'hover:bg-[var(--sidebar-accent)]'
             }`
           }
@@ -35,9 +35,9 @@ export default function ProfileNavigation() {
         <NavLink
           to="learning"
           className={({ isActive }) =>
-            `rounded px-4 py-2 transition-colors text-[var(--sidebar-foreground)] ${
+            `rounded-md px-4 py-2 transition-colors duration-300 text-[var(--sidebar-foreground)] ${
               isActive
-                ? 'bg-[var(--sidebar-accent)]'
+                ? 'bg-[var(--sidebar-accent)] text-[var(--chart-1)]'
                 : 'hover:bg-[var(--sidebar-accent)]'
             }`
           }

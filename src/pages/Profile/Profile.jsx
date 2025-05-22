@@ -24,7 +24,13 @@ export default function Profile() {
           {
             name: "Burger",
             img: img,
-            discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            discription: "Lorem ipsum dolor sit amet"
+          },
+
+          {
+            name: "Not Burger",
+            img: img,
+            discription: "Lorem ipsum dolor sit amet"
           }
         ]
       }
@@ -35,17 +41,18 @@ export default function Profile() {
   return (
     <div>
         {!editProfile ? (
-              <div className='p-6 grid grid-cols-[63%_35%] grid-rows-3 gap-2'>
-              <ProfileBlock userData={userData} setEditProfile={setEditProfile}/>
-              <Achievements/>
-              {userData.extraInfo.aboutMe && (
-                <ExtraInfoBlock status="abouMe" label={"Обо мне"} content={userData.extraInfo.aboutMe}/>
-              )}
+              <div className='p-6 grid grid-cols-[63%_35%] gap-2'>
+                <ProfileBlock userData={userData} setEditProfile={setEditProfile}/>
+                <Achievements/>
+                  <div className="flex flex-col gap-2">
+                    {userData.extraInfo.aboutMe && (
+                      <ExtraInfoBlock status="aboutMe" label="Обо мне" content={userData.extraInfo.aboutMe} />
+                    )}
 
-              {userData.extraInfo.projects && (
-                <ExtraInfoBlock status="projects" label={"Мои проекты"} content={userData.extraInfo.projects}/>
-              )}
-              
+                    {userData.extraInfo.projects && (
+                      <ExtraInfoBlock status="projects" label="Мои проекты" content={userData.extraInfo.projects} />
+                    )}
+                  </div>
             </div>
         ) : (
           <div className='p-6'>
