@@ -9,17 +9,16 @@ import { TestimonialsSection } from "@/components/TestimonialsSection/Testimonia
 
 export default function Home() {
   return (
-    <div className="bg-[#f7f7f7] flex flex-col items-center w-full">
-      <div className="bg-[#f7f7f7] w-full max-w-[1440px]">
-        <HeaderSection />
-        <HeroSection />
-        <FeaturesSection />
-        <ServicesSection />
-        <TestimonialsSection />
-        <ProgressTrackingSection />
+      <div className="bg-[#f7f7f7] flex flex-col items-center w-full">
+        <div className="bg-[#f7f7f7] w-full max-w-[1440px] container">
+          <HeaderSection />
+          <HeroSection />
+          <FeaturesSection />
+          <ServicesSection />
+          <TestimonialsSection />
+          <ProgressTrackingSection />
+        </div>
         <FooterSection />
       </div>
-    </div>
   );
 }
-

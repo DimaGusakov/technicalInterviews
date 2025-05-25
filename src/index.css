@@ -1,12 +1,10 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import "tailwindcss";
 @import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme {
 
-  --color-purple-900: #400799; 
+  --color-purple-900: #400799;
   --color-purple-800: #5509CC;
   --color-purple-700: #6A0BFF;
   --color-purple-600: #883CFF;

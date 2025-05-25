@@ -1,4 +1,3 @@
-// SVG иконки как React компоненты
 export const ChevronDownIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -273,4 +272,4 @@ export const LayoutIcon = (props) => (
   </svg>
 );
 
-// Добавим остальные иконки по мере необходимости 
+// Добавим остальные иконки по мере необходимости
