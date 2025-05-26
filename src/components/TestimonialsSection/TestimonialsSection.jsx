@@ -23,10 +23,9 @@ export function TestimonialsSection() {
 
   return (
       <section className="relative w-full max-w-[1216px] h-auto py-16 mx-auto px-5">
-        <h2 className="text-[40px] font-medium leading-[115%] text-center uppercase text-black mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-medium leading-[115%] text-center uppercase text-black mb-12">
           РЕЖИМ ПРОХОЖДЕНИЯ СОБЕСЕДОВАНИЙ
         </h2>
-
         {/* Desktop layout */}
         <div className="flex flex-row gap-8 min-[1307px]:flex max-[1306px]:hidden">
           {/* Left side - Image */}
