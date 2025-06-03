@@ -1,6 +1,4 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -15,4 +13,3 @@
     max-width: clamp(21.5rem, 1.426rem + 89.216vw, 44.25rem); // 708px->344px(768px -> 360px)
   }
 }
-
