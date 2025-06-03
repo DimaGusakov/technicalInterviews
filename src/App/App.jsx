@@ -6,10 +6,17 @@ import LoginPage from "@/pages/auth/Login/LoginPage.jsx";
 import './App.scss';
 import Home from '../pages/Home/Home';
 
+import ProfileNavigation from '@/pages/ProfileNavigation/ProfileNavigation';
+
 export default function App() {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path="/profileNavigation" element={<ProfileNavigation/>}>
+                    <Route path="profile"/>
+                    <Route path='edit'/>
+                </Route>       
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/forgot-password" element={<ForgotPasswordPage />} />
