@@ -12,10 +12,8 @@ export default function Profile() {
       avatar: img,
       name: "Имя",
       surname: "Фамилия",
-      age: 18,
-      profession: "профессия",
-      experience: "1 год",
-      address: "Адрес",
+      profession: "frontend",
+      experience: "Junior",
       telephone: "+666 66 666 66 66",
       email: "emailaddress@gmail.com",
       extraInfo: {

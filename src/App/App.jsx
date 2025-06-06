@@ -1,18 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import './App.scss';
+import Home from '../pages/Home/Home';
 
-import Profile from '@/pages/Profile/Profile';
-import EditingProfile from '@/components/EditingProfile/EditingProfile';
+import ProfileNavigation from '@/pages/ProfileNavigation/ProfileNavigation';
 
 export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/profileNavigation" >
-                    <Route path="profile" element={<Profile/>} />
-                    <Route path='edit' element={<EditingProfile/>} />
-                </Route>                
+                <Route path='/' element={<Home />} />
+                <Route path="/profileNavigation" element={<ProfileNavigation/>}>
+                    <Route path="profile"/>
+                    <Route path='edit'/>
+                </Route>       
             </Routes>
         </BrowserRouter>
     )
