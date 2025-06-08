@@ -35,7 +35,7 @@ const RegisterForm = () => {
             });
 
             setSuccessMessage("Регистрация прошла успешно! Перенаправляем...");
-            setTimeout(() => navigate('/'), 2000);
+            setTimeout(() => navigate('/profileNavigation'), 2000);
 
         } catch (error) {
             console.error("Ошибка регистрации:", error);

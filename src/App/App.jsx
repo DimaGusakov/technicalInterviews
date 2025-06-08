@@ -19,7 +19,7 @@ export default function App() {
                 <Route path="/profileNavigation" element={<ProfileNavigation/>}>
                     <Route path="profile"/>
                     <Route path='edit'/>
-                    <Route path='quetions' element={<TestBlock/>}/>
+                    <Route path='questions' element={<TestBlock/>}/>
                     <Route path='results' element={<Results/>}/>
                 </Route>       
                 <Route path="/login" element={<LoginPage />} />
