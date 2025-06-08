@@ -2,19 +2,22 @@ import React from 'react'
 import { useState, useEffect, useRef } from "react";
 import { generateQuetions, generateFeedback } from './AiGeneration/generator';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { setQuestions, addFeedback } from '@/store/slices/resultSlice';
 
 export default function TestBlock(props) {
   const [quetions, setQuetions] = useState([]);  // array of q
   const [testUserInfo, setTestUserInfo] = useState({ // user data
-    numberOfQuetions: 2,
+    numberOfQuetions: 3,
     profession: "Фронтенд-разработчик",
     level: "Junior"
   })
   const [currentQuetion, setCurrentQuetion] = useState(0); //number of q
   const [answer, setAnswer] = useState("")
 
-  const [results, setResults] = useState([]);
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const hasFetched = useRef(false); // tracks if q we already fetched
 
   useEffect(() => {
@@ -24,6 +27,7 @@ export default function TestBlock(props) {
       try {
         const response = await generateQuetions(testUserInfo);
         setQuetions(response) //q generated
+        dispatch(setQuestions(response));
       } catch (error) {
         console.error(error);
       }
@@ -33,13 +37,13 @@ export default function TestBlock(props) {
   const nextQuetion = async () => {
     try {
       const feedback = await generateFeedback(answer);
-      setResults(prev => {
-        const updated = [...prev, feedback];
-        console.log(updated); // This will show the correct array
-        return updated;
-      });
+      dispatch(addFeedback(feedback));
 
-      if (testUserInfo.numberOfQuetions - 1 !== currentQuetion) setCurrentQuetion(prev =>  prev + 1);
+      if (testUserInfo.numberOfQuetions - 1 === currentQuetion){
+        navigate("../results")
+      };
+      setCurrentQuetion(prev =>  prev + 1);
+      setAnswer("")
 
     } catch (error) {
       console.error(error)
