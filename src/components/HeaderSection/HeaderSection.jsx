@@ -6,9 +6,11 @@ import {
     NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 export const HeaderSection = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const navigate = useNavigate(); // Исправлено: добавлено присвоение
 
     // Navigation links data
     const navLinks = [
@@ -18,6 +20,14 @@ export const HeaderSection = () => {
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    const handleLogin = () => {
+        navigate('/login');
+    };
+
+    const handleRegister = () => {
+        navigate('/register');
     };
 
     return (
@@ -63,13 +73,17 @@ export const HeaderSection = () => {
                 {/* Desktop Authentication buttons */}
                 <div className="hidden sm:flex items-center gap-3 lg:gap-6">
                     <Button
+                        onClick={handleLogin}
                         variant="ghost"
                         className="text-purple-700 font-semibold px-3 lg:px-4 text-sm lg:text-base hover:bg-purple-50"
                     >
                         Вход
                     </Button>
 
-                    <Button className="bg-purple-700 text-white rounded-full h-10 lg:h-12 px-4 lg:px-6 font-medium text-sm lg:text-base hover:bg-purple-800 transition-colors">
+                    <Button
+                        onClick={handleRegister}
+                        className="bg-purple-700 text-white rounded-full h-10 lg:h-12 px-4 lg:px-6 font-medium text-sm lg:text-base hover:bg-purple-800 transition-colors"
+                    >
                         Регистрация
                     </Button>
                 </div>
@@ -111,13 +125,17 @@ export const HeaderSection = () => {
                     {/* Mobile Authentication buttons */}
                     <div className="flex flex-col gap-3">
                         <Button
+                            onClick={handleLogin}
                             variant="ghost"
                             className="text-purple-700 font-semibold w-full justify-center py-3 hover:bg-purple-50"
                         >
                             Вход
                         </Button>
 
-                        <Button className="bg-purple-700 text-white rounded-full w-full py-3 font-medium hover:bg-purple-800 transition-colors">
+                        <Button
+                            onClick={handleRegister}
+                            className="bg-purple-700 text-white rounded-full w-full py-3 font-medium hover:bg-purple-800 transition-colors"
+                        >
                             Регистрация
                         </Button>
                     </div>
