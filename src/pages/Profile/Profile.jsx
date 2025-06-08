@@ -41,7 +41,7 @@ export default function Profile() {
         {!editProfile ? (
               <div className='p-6 grid grid-cols-[63%_35%] gap-2'>
                 <ProfileBlock userData={userData} setEditProfile={setEditProfile}/>
-                <Achievements/>
+                {/* <Achievements/>
                   <div className="flex flex-col gap-2">
                     {userData.extraInfo.aboutMe && (
                       <ExtraInfoBlock status="aboutMe" label="Обо мне" content={userData.extraInfo.aboutMe} />
@@ -50,7 +50,7 @@ export default function Profile() {
                     {userData.extraInfo.projects && (
                       <ExtraInfoBlock status="projects" label="Мои проекты" content={userData.extraInfo.projects} />
                     )}
-                  </div>
+                  </div> */}
             </div>
         ) : (
           <div className='p-6'>
