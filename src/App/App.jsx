@@ -8,6 +8,9 @@ import Home from '../pages/Home/Home';
 
 import ProfileNavigation from '@/pages/ProfileNavigation/ProfileNavigation';
 
+import TestBlock from '@/pages/TestBlock/TestBlock';
+import Results from '@/pages/Results/Results';
+
 export default function App() {
     return (
         <BrowserRouter>
@@ -16,6 +19,8 @@ export default function App() {
                 <Route path="/profileNavigation" element={<ProfileNavigation/>}>
                     <Route path="profile"/>
                     <Route path='edit'/>
+                    <Route path='quetions' element={<TestBlock/>}/>
+                    <Route path='results' element={<Results/>}/>
                 </Route>       
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
