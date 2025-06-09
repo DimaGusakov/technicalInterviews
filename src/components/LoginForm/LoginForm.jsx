@@ -23,8 +23,9 @@ const LoginForm = () => {
 
         try {
             await signInWithEmailAndPassword(auth, data.email, data.password);
+
             setSuccessMessage("Вход выполнен успешно! Перенаправляем...");
-            setTimeout(() => navigate('/profileNavigation'), 1500);
+            setTimeout(() => navigate('/profileNavigation/profile'), 1500);
         } catch (error) {
             console.error("Ошибка входа:", error);
             if (error.code === 'auth/invalid-credential') {

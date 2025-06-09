@@ -9,6 +9,8 @@ import Home from '../pages/Home/Home';
 
 import ProfileNavigation from '@/pages/ProfileNavigation/ProfileNavigation';
 
+import Profile from '@/pages/Profile/Profile';
+
 import TestBlock from '@/pages/TestBlock/TestBlock';
 import Results from '@/pages/Results/Results';
 
@@ -18,7 +20,7 @@ export default function App() {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path="/profileNavigation" element={<ProfileNavigation/>}>
-                    <Route path="profile"/>
+                    <Route path="profile" element={<Profile/>}/>
                     <Route path='edit'/>
                     <Route path='questions' element={<TestBlock/>}/>
                     <Route path='results' element={<Results/>}/>

@@ -1,10 +1,34 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router';
-import { NavMainpageIcon, NavProfileIcon, NavEducationIcon, SettingsIcon } from '@/components/icons';
+import { NavMainpageIcon, NavProfileIcon, NavEducationIcon } from '@/components/icons';
+import { useLazyGetUserQuery } from '@/service/databaseApi';
+import { getAuth } from 'firebase/auth';
+
+import TopNavbar from '@/components/TopNavbar/TopNavbar';
 
 import img from "../../../image.png";
 
 export default function ProfileNavigation() {
+
+  const user = getAuth().currentUser;
+
+  const [getUser] = useLazyGetUserQuery();
+  const [userData, setUserData] = useState({
+    name: "default"
+  });
+        
+    useEffect(() => {
+      (async () => {
+            if (!user) return;
+            try {
+              const { data } = await getUser(user?.uid);
+              if (data) setUserData(data);
+            } catch (err) {
+              console.error("Failed to load user data", err);
+            }
+        })();
+    }, []);
+
   return (
     <div className="flex min-h-screen">
       
@@ -63,12 +87,7 @@ export default function ProfileNavigation() {
       </nav>
 
       <main className="flex-1 bg-[var(--color-background)]">
-        <div className='flex h-19 items-center justify-end !p-[14px_20px] gap-[11px] bg-[var(--color-sidebar)]'>
-          <SettingsIcon/>
-          <div className='w-[40px] h-[40px]'>
-            <img className='object-cover w-full h-10' src={img} alt="icon"/>  
-          </div>
-        </div>
+        <TopNavbar/>
         <Outlet />
       </main>
 

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router';
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '@/firebase/firebase.js';
 import { useForm } from "react-hook-form";
+import { useAddUserMutation } from '@/service/databaseApi';
 
 const RegisterForm = () => {
     const {
@@ -19,6 +20,8 @@ const RegisterForm = () => {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const navigate = useNavigate();
 
+    const [addUser] = useAddUserMutation();
+
     const onSubmit = async (data) => {
         setErrorMessage("");
         setSuccessMessage("");
@@ -30,12 +33,25 @@ const RegisterForm = () => {
                 data.password
             );
 
+            const newUserData = {
+                avatar: "",
+                email: userCredential.user.email,
+                name: data.name,
+                profession: "",
+                experience: ""
+            };
+
+            await addUser({
+                uid: userCredential.user.uid,
+                userData: newUserData
+            });
+
             await updateProfile(userCredential.user, {
                 displayName: data.name
             });
 
             setSuccessMessage("Регистрация прошла успешно! Перенаправляем...");
-            setTimeout(() => navigate('/profileNavigation'), 2000);
+            setTimeout(() => navigate('/profileNavigation/profile'), 2000);
 
         } catch (error) {
             console.error("Ошибка регистрации:", error);
