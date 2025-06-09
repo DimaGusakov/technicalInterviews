@@ -6,8 +6,6 @@ import { getAuth } from 'firebase/auth';
 
 import TopNavbar from '@/components/TopNavbar/TopNavbar';
 
-import img from "../../../image.png";
-
 export default function ProfileNavigation() {
 
   const user = getAuth().currentUser;
