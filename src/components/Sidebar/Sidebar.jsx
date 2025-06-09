@@ -10,8 +10,9 @@ const Sidebar = () => {
     ];
 
     return (
-        <div className="hidden md:flex md:w-2/5 bg-purple-700 text-white rounded-tr-3xl rounded-br-3xl flex-col justify-between p-12">
-            <div>
+        <div className="hidden md:flex md:w-2/5 bg-purple-700 text-white rounded-tr-3xl rounded-br-3xl flex-col justify-between p-6 lg:p-12 overflow-hidden">
+
+        <div>
                 <div className="flex items-center mb-8">
                     <div className="bg-white rounded-full p-2">
                         <span className="text-purple-700 font-bold text-2xl">Y</span>
