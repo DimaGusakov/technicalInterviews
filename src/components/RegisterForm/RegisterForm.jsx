@@ -35,12 +35,11 @@ const RegisterForm = () => {
             });
 
             setSuccessMessage("Регистрация прошла успешно! Перенаправляем...");
-            setTimeout(() => navigate('/'), 2000);
+            setTimeout(() => navigate('/profileNavigation'), 2000);
 
         } catch (error) {
             console.error("Ошибка регистрации:", error);
 
-            // Обработка конкретных ошибок Firebase
             switch (error.code) {
                 case 'auth/email-already-in-use':
                     setErrorMessage("Этот email уже зарегистрирован. Используйте другой email или войдите в систему.");
@@ -58,8 +57,9 @@ const RegisterForm = () => {
     };
 
     return (
-        <div className="flex-1 flex items-center justify-center py-16 px-6 md:px-12 bg-gray-50">
-            <form
+        <div className="min-h-screen w-full overflow-x-hidden flex items-center justify-center bg-gray-50 px-4 py-10">
+
+        <form
                 className="w-full max-w-md bg-white p-8 rounded-xl shadow-md"
                 onSubmit={handleSubmit(onSubmit)}
             >
