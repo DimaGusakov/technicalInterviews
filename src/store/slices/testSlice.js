@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const testSlice = createSlice({
-  name: 'test',
+  name: 'testData',
   initialState,
   reducers: {
     setTestConfig: (state, action) => {

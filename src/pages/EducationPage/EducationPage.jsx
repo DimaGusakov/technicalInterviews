@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setTestConfig } from '@/store/slices/testSlice';
 import { useNavigate } from 'react-router';
+import { getAuth } from 'firebase/auth';
+import { useLazyGetUserQuery } from '@/service/databaseApi';
 
 const professions = [
   'Frontend Developer',
@@ -24,6 +26,8 @@ export default function EducationPage() {
   
   const [error, setError] = useState('');
 
+  const [triggerGetUser] = useLazyGetUserQuery();
+
   const [userData, setUserData] = useState(() => {
     const cached = localStorage.getItem('userData');
     return cached ? JSON.parse(cached) : {
@@ -40,23 +44,18 @@ export default function EducationPage() {
 
   const navigate = useNavigate();
 
-  //const user = getAuth().currentUser;
+  const user = getAuth().currentUser;
 
   const fetchUserData = async () => {
-    //if (!user) return;
+    if (!user) return;
     try {
-    //   const { data } = await triggerGetUser(user?.uid);
-    //   if (data) {
-    //     setUserData(data);
-    //     localStorage.setItem('userData', JSON.stringify(data));
-    //   }
+      const { data } = await triggerGetUser(user?.uid);
+      if (data) {
+        setUserData(data);
+        localStorage.setItem('userData', JSON.stringify(data));
+      }
       
-      const recievedData = {
-        profession: null,
-        experience: null
-      };
-      setUserData(recievedData);
-      localStorage.setItem('userData', JSON.stringify(recievedData));
+      localStorage.setItem('userData', JSON.stringify(userData));
     } catch (err) {
       console.error('Failed to load user data', err);
     }
@@ -91,6 +90,7 @@ export default function EducationPage() {
       ...testConfig,
       questionsCount
     };
+
 
     dispatch(setTestConfig(config));
     navigate("../questions")

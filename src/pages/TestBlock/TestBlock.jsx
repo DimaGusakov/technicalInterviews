@@ -9,8 +9,7 @@ import { useSelector } from 'react-redux';
 
 export default function TestBlock() {
   const [quetions, setQuetions] = useState([]);
-  const { items: profession, experience, questionsCount } = useSelector((state) => state.testData);
-
+  const { profession, experience, questionsCount } = useSelector((state) => state.testData);
   const [currentQuetion, setCurrentQuetion] = useState(0);
   const [answer, setAnswer] = useState("");
   const [error, setError] = useState("");
@@ -27,7 +26,7 @@ export default function TestBlock() {
     const fetchQuestions = async () => {
       setIsLoading(true);
       try {
-        console.log(profession, experience, questionsCount)
+        
         const response = await generateQuetions(profession, experience, questionsCount);
         setQuetions(response);
         dispatch(setQuestions(response));
@@ -70,7 +69,6 @@ export default function TestBlock() {
     }
   };
 
-  // Handle case when questions haven't loaded yet
   if (isLoading && currentQuetion === 0) {
     return (
       <div className='p-[16px] m-10 bg-[var(--color-card)] border border-[var(--color-border)] rounded-3xl shadow-[0px_4px_10px_0px_rgba(106,99,118,0.1)]'>
@@ -79,7 +77,6 @@ export default function TestBlock() {
     );
   }
 
-  // Handle error state
   if (error && !quetions.length) {
     return (
       <div className='p-[16px] m-10 bg-[var(--color-card)] border border-[var(--color-border)] rounded-3xl shadow-[0px_4px_10px_0px_rgba(106,99,118,0.1)]'>
@@ -88,7 +85,6 @@ export default function TestBlock() {
     );
   }
 
-  // Handle case when there are no questions
   if (!quetions.length) {
     return (
       <div className='p-[16px] m-10 bg-[var(--color-card)] border border-[var(--color-border)] rounded-3xl shadow-[0px_4px_10px_0px_rgba(106,99,118,0.1)]'>
@@ -117,7 +113,7 @@ export default function TestBlock() {
           placeholder='Напишите свой развёрнутый ответ'
           onChange={(e) => {
             setAnswer(e.target.value);
-            setError(""); // Clear error when user starts typing
+            setError(""); // Чистка ошибок
           }}
         />
         
