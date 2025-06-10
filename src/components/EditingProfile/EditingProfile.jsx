@@ -15,7 +15,6 @@ export default function EditingProfile({ userData, onCancel, onSave }) {
 
   const user = getAuth().currentUser;
   const [updateUser] = useUpdateUserMutation();
-  const [loadingImage, setLoadingImage] = useState(false);
 
   const professions = [
     'Frontend Developer',
@@ -59,7 +58,6 @@ export default function EditingProfile({ userData, onCancel, onSave }) {
         const file = e.target.files[0];
         if (!file) return;
 
-        setLoadingImage(true);
         const formData = new FormData();
         formData.append('file', file);
         formData.append('upload_preset', 'technicalInterviews_avatars');
@@ -74,8 +72,6 @@ export default function EditingProfile({ userData, onCancel, onSave }) {
         setNewName(prev => ({ ...prev, avatar: data.secure_url }));
         } catch (err) {
         console.error('Upload failed', err);
-        } finally {
-        setLoadingImage(false);
         }
     };
 

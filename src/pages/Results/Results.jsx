@@ -17,8 +17,8 @@ export default function Results() {
             <div key={i} className="mb-4 p-4 border rounded-xl">
               <h2 className="font-semibold text-2xl mb-2">Вопрос {i + 1}: {question}</h2>
               <p><strong>Оценка:</strong> {feedbacks[i]?.score}</p>
-              <p><strong>Плюсы:</strong> {feedbacks[i]?.advantages.join(", ")}</p>
-              <p><strong>Минусы:</strong> {feedbacks[i]?.disadvantages.join(", ")}</p>
+              <p><strong>Плюсы:</strong> {feedbacks[i]?.advantages.join(" ")}</p>
+              <p><strong>Минусы:</strong> {feedbacks[i]?.disadvantages.join(" ")}</p>
               <p><strong>Комментарии:</strong> {feedbacks[i]?.comments}</p>
             </div>
           ))}

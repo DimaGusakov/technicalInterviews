@@ -31,7 +31,7 @@ export default function ProfileNavigation() {
     <div className="flex min-h-screen">
       
       <nav role="navigation" className="flex flex-col gap-2 !p-10 w-62 min-h-screen bg-[var(--sidebar)] text-[var(--sidebar-foreground)] text-[clamp(0.5rem,1.5vw,1.3rem)]">
-        <NavLink to="main">
+        <NavLink to="/">
           {({ isActive }) => (
             <div
               className={`rounded-md px-4 py-2 transition-colors flex items-center gap-2 text-black ${

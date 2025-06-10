@@ -14,6 +14,8 @@ import Profile from '@/pages/Profile/Profile';
 import TestBlock from '@/pages/TestBlock/TestBlock';
 import Results from '@/pages/Results/Results';
 
+import EducationPage from '@/pages/EducationPage/EducationPage';
+
 export default function App() {
     return (
         <BrowserRouter>
@@ -22,6 +24,7 @@ export default function App() {
                 <Route path="/profileNavigation" element={<ProfileNavigation/>}>
                     <Route path="profile" element={<Profile/>}/>
                     <Route path='edit'/>
+                    <Route path='learning' element={<EducationPage />}/>
                     <Route path='questions' element={<TestBlock/>}/>
                     <Route path='results' element={<Results/>}/>
                 </Route>       
