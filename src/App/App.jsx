@@ -10,7 +10,8 @@ import ProfileNavigation from '@/pages/ProfileNavigation/ProfileNavigation';
 
 import TestBlock from '@/pages/TestBlock/TestBlock';
 import Results from '@/pages/Results/Results';
-import EducationPage from "@/components/EducationPage/EducationPage.jsx";
+
+import EducationPage from '@/pages/EducationPage/EducationPage';
 
 export default function App() {
     return (
@@ -20,9 +21,9 @@ export default function App() {
                 <Route path="/profileNavigation" element={<ProfileNavigation/>}>
                     <Route path="profile"/>
                     <Route path='edit'/>
+                    <Route path='learning' element={<EducationPage />}/>
                     <Route path='questions' element={<TestBlock/>}/>
                     <Route path='results' element={<Results/>}/>
-                    <Route path='learning' element={<EducationPage />}/>
                 </Route>       
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />

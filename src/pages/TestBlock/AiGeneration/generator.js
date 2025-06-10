@@ -4,11 +4,11 @@ const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
 const ai = new GoogleGenAI({ apiKey: apiKey });
 
-export async function generateQuetions({numberOfQuetions, profession, level}) {
+export async function generateQuetions(profession, experience, questionsCount) {
     const response = await ai.models.generateContent({
         model: "gemini-2.0-flash",
-        contents: `Сгенерируй открытые вопросы для собеседования на позицию ${profession} уровня ${level}. 
-                    Количество вопросов ${numberOfQuetions}. 
+        contents: `Сгенерируй открытые вопросы для собеседования на позицию ${profession} уровня ${experience}. 
+                    Количество вопросов ${questionsCount}. 
                     Каждый вопрос должен иметь конкретный технический фокус и предполагать развёрнутый, но конечный ответ.  
                     Избегай вопросов о личном опыте, проектах или мнениях.  
                     Используй не более 35 слов на вопрос.  
@@ -17,9 +17,9 @@ export async function generateQuetions({numberOfQuetions, profession, level}) {
 
                     Пример вывода:
                     [
-                        "Что происходит при вызове функции useEffect без зависимостей в React?",
-                        "Как работает всплытие событий (event bubbling) в JavaScript и как его остановить?",
-                        "Чем отличаются классы и функциональные компоненты в React?"
+                        "Question1?",
+                        "Question2?",
+                        "Question3?"
                     ]`,
     });
 
@@ -28,8 +28,6 @@ export async function generateQuetions({numberOfQuetions, profession, level}) {
     if (text.startsWith("```json")) {
         text = text.replace(/^```json/, "").replace(/```$/, "").trim();
     }
-
-    console.log(text)
 
     try {
         const quetions = JSON.parse(text);
