@@ -17,3 +17,12 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+.input-style {
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: #fff;
+  font-size: 1rem;
+  margin-top: 4px;
+}
